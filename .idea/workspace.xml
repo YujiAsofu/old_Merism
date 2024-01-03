@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d1c47b59-1687-401b-b7cd-8d3b8290ba6a" name="Changes" comment="add finalResults and toggleLock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/titan/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/titan/Wheel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +73,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704303721783</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add finalResults and toggleLock">
+      <option name="closed" value="true" />
+      <created>1704304238203</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704304238203</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
