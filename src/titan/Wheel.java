@@ -3,21 +3,21 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Wheel {
-    static int[] resultsSpin = new int [5];
-    public static int[] finalResults = new int [5];
+    static int[] resultsFromSpin = new int [5];
+    public static int[] FinalResults = new int [5];
 
     public static int[] spinWheel() {
-        for ( int i = 0; i < resultsSpin.length; i++ ) {
-            resultsSpin[i] = (int)((Math.random()*10)+1);
+        for (int i = 0; i < resultsFromSpin.length; i++ ) {
+            resultsFromSpin[i] = (int)((Math.random()*10)+1);
         }
-        return resultsSpin;
+        return resultsFromSpin;
     }
 
-    public static void toggleLock(int index) {
-        if (finalResults[index] == 0) {
-            finalResults[index] = resultsSpin[index];
+    public static void toggleResultLock(int index) {
+        if (FinalResults[index] == 0) {
+            FinalResults[index] = resultsFromSpin[index];
         } else {
-            finalResults[index] = 0;
+            FinalResults[index] = 0;
         }
     }
 
@@ -29,19 +29,19 @@ public class Wheel {
             input = scanner.nextInt();
             switch (input) {
                 case 1:
-                    toggleLock(0);
+                    toggleResultLock(0);
                     break;
                 case 2:
-                    toggleLock(1);
+                    toggleResultLock(1);
                     break;
                 case 3:
-                    toggleLock(2);
+                    toggleResultLock(2);
                     break;
                 case 4:
-                    toggleLock(3);
+                    toggleResultLock(3);
                     break;
                 case 5:
-                    toggleLock(4);
+                    toggleResultLock(4);
                     break;
                 case 9:
                     break;
@@ -49,7 +49,7 @@ public class Wheel {
         }
     }
 
-    public static int[] createFinalResults(int[] resultsSpin, int [] finalResults) {
+    public static int[] showFinalResults(int[] resultsSpin, int [] finalResults) {
         for ( int i = 0; i < finalResults.length; i++ )
             if (finalResults[i] == 0) {
                 finalResults[i] = resultsSpin[i];
@@ -57,30 +57,29 @@ public class Wheel {
         return finalResults;
     }
 
-    public static void printResults() {
+    public static void showResults() {
         int[] results = new int [5];
-        for ( int i = 0; i < finalResults.length; i++ ) {
-            if (finalResults[i] == 0) {
-                results[i] = resultsSpin[i];
+        for (int i = 0; i < FinalResults.length; i++ ) {
+            if (FinalResults[i] == 0) {
+                results[i] = resultsFromSpin[i];
             } else {
-                results[i] = finalResults[i];
+                results[i] = FinalResults[i];
             }
         }
         System.out.println(Arrays.toString(results));
     }
 
-    public static int[] defineResults() {
+    public static void playerTurn() {
         for ( int i = 0; i < 2; i++ ) {
             System.out.println("-- " + (i + 1) + "ª RODADA --");
             spinWheel();
-            printResults();
+            showResults();
             waitForLockInput();
             System.out.println();
         }
         spinWheel();
-        createFinalResults(resultsSpin,finalResults);
+        showFinalResults(resultsFromSpin, FinalResults);
         System.out.println("-- 3ª RODADA --");
-        System.out.println(Arrays.toString(finalResults));
-        return finalResults;
+        System.out.println(Arrays.toString(FinalResults));
     }
 }
