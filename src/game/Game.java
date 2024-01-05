@@ -1,5 +1,9 @@
 package game;
 
+import titan.Wheel;
+
+import java.util.Arrays;
+
 public class Game {
     /* public void startGame() {
     }
@@ -10,4 +14,17 @@ public class Game {
 
     } */
 
+    public static void playerTurn() {
+        for ( int i = 0; i < 2; i++ ) {
+            System.out.println("-- " + (i + 1) + "ª RODADA --");
+            Wheel.spinWheel();
+            Wheel.showResults();
+            Wheel.waitForLockInput();
+            System.out.println();
+        }
+        Wheel.spinWheel();
+        Wheel.showFinalResults(Wheel.resultsFromSpin, Wheel.FinalResults);
+        System.out.println("-- 3ª RODADA --");
+        System.out.println(Arrays.toString(Wheel.FinalResults));
+    }
 }
