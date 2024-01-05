@@ -6,7 +6,7 @@ public class Wheel {
     public static int[] resultsFromSpin = new int [5];
     public static int[] FinalResults = new int [5];
 
-    public static int[] spinWheel() {
+    public static int[] spin() {
         for (int i = 0; i < resultsFromSpin.length; i++ ) {
             resultsFromSpin[i] = (int)((Math.random()*10)+1);
         }
