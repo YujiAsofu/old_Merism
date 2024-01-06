@@ -1,26 +1,24 @@
 package Wheel;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
 public class Actions {
     public static int[] resultsFromSpin = new int [5];
-    public static int[] buildUpResults = new int [5];
     public static int[] finalResults = new int [5];
+    public static int[] buildUpResults = new int [5];
 
-    public static int[] spin() {
+    public static void spin() {
         Random random = new Random();
         for (int i = 0; i < resultsFromSpin.length; i++ ) {
             resultsFromSpin[i] = random.nextInt(100)+1;
         }
-        return resultsFromSpin;
     }
 
     public static void toggleResultLock(int index) {
-        if (buildUpResults[index] == 0) {
-            buildUpResults[index] = resultsFromSpin[index];
+        if (finalResults[index] == 0) {
+            finalResults[index] = resultsFromSpin[index];
         } else {
-            buildUpResults[index] = 0;
+            finalResults[index] = 0;
         }
     }
 
@@ -52,24 +50,23 @@ public class Actions {
         }
     }
 
-    public static int[] showFinalResults() {
-        for (int i = 0; i < buildUpResults.length; i++ )
-            if (buildUpResults[i] == 0) {
-                buildUpResults[i] = resultsFromSpin[i];
+    public static int[] buildFinalResults() {
+        for (int i = 0; i < finalResults.length; i++ )
+            if (finalResults[i] == 0) {
+                finalResults[i] = resultsFromSpin[i];
         }
-        return buildUpResults;
+        return finalResults;
     }
 
-    public static void showSpinResults() {
+    public static void buildMaskOfResults() {
         //int[] results = new int [5];
-        for (int i = 0; i < buildUpResults.length; i++ ) {
-            if (buildUpResults[i] == 0) {
-                finalResults[i] = resultsFromSpin[i];
+        for (int i = 0; i < finalResults.length; i++ ) {
+            if (finalResults[i] == 0) {
+                buildUpResults[i] = resultsFromSpin[i];
             } else {
-                finalResults[i] = buildUpResults[i];
+                buildUpResults[i] = finalResults[i];
             }
         }
-        System.out.println(Arrays.toString(finalResults));
     }
 
     /* HAMMER EMOTE: \uD83D\uDD28
