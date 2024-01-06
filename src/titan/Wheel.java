@@ -1,14 +1,16 @@
 package titan;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Wheel {
     public static int[] resultsFromSpin = new int [5];
     public static int[] FinalResults = new int [5];
 
     public static int[] spin() {
+        Random random = new Random();
         for (int i = 0; i < resultsFromSpin.length; i++ ) {
-            resultsFromSpin[i] = (int)((Math.random()*10)+1);
+            resultsFromSpin[i] = random.nextInt(100)+1;
         }
         return resultsFromSpin;
     }
@@ -49,12 +51,12 @@ public class Wheel {
         }
     }
 
-    public static int[] showFinalResults(int[] resultsSpin, int [] finalResults) {
-        for ( int i = 0; i < finalResults.length; i++ )
-            if (finalResults[i] == 0) {
-                finalResults[i] = resultsSpin[i];
+    public static int[] showFinalResults() {
+        for ( int i = 0; i < FinalResults.length; i++ )
+            if (FinalResults[i] == 0) {
+                FinalResults[i] = resultsFromSpin[i];
         }
-        return finalResults;
+        return FinalResults;
     }
 
     public static void showResults() {

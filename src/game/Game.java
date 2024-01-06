@@ -23,7 +23,7 @@ public class Game {
             System.out.println();
         }
         Wheel.spin();
-        Wheel.showFinalResults(Wheel.resultsFromSpin, Wheel.FinalResults);
+        Wheel.showFinalResults();
         System.out.println("-- 3ª RODADA --");
         System.out.println(Arrays.toString(Wheel.FinalResults));
     }
