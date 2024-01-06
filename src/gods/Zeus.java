@@ -1,10 +1,13 @@
 package gods;
 
-public class Zeus implements AttributesInterface {
-    public static final int DEFAULT_ACTION_POINTS = 5;
+public class Zeus implements AttributesInterface , ActionsInterface {
+    public static final int REQUIRED_ACTION_POINTS = 5;
     public Zeus() {
-        setDefaultActionPoints(DEFAULT_ACTION_POINTS);
+        setDefaultActionPoints(REQUIRED_ACTION_POINTS);
     }
-
+    public static void firstAction() {
+        ActionsInterface.basicHitOnEnemy(-2);
+    }
+    public void secondAction() {}
 
 }

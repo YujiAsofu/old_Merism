@@ -1,11 +1,12 @@
-package titan;
+package Wheel;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Wheel {
+public class Actions {
     public static int[] resultsFromSpin = new int [5];
-    public static int[] FinalResults = new int [5];
+    public static int[] buildUpResults = new int [5];
+    public static int[] finalResults = new int [5];
 
     public static int[] spin() {
         Random random = new Random();
@@ -16,10 +17,10 @@ public class Wheel {
     }
 
     public static void toggleResultLock(int index) {
-        if (FinalResults[index] == 0) {
-            FinalResults[index] = resultsFromSpin[index];
+        if (buildUpResults[index] == 0) {
+            buildUpResults[index] = resultsFromSpin[index];
         } else {
-            FinalResults[index] = 0;
+            buildUpResults[index] = 0;
         }
     }
 
@@ -52,22 +53,28 @@ public class Wheel {
     }
 
     public static int[] showFinalResults() {
-        for ( int i = 0; i < FinalResults.length; i++ )
-            if (FinalResults[i] == 0) {
-                FinalResults[i] = resultsFromSpin[i];
+        for (int i = 0; i < buildUpResults.length; i++ )
+            if (buildUpResults[i] == 0) {
+                buildUpResults[i] = resultsFromSpin[i];
         }
-        return FinalResults;
+        return buildUpResults;
     }
 
-    public static void showResults() {
-        int[] results = new int [5];
-        for (int i = 0; i < FinalResults.length; i++ ) {
-            if (FinalResults[i] == 0) {
-                results[i] = resultsFromSpin[i];
+    public static void showSpinResults() {
+        //int[] results = new int [5];
+        for (int i = 0; i < buildUpResults.length; i++ ) {
+            if (buildUpResults[i] == 0) {
+                finalResults[i] = resultsFromSpin[i];
             } else {
-                results[i] = FinalResults[i];
+                finalResults[i] = buildUpResults[i];
             }
         }
-        System.out.println(Arrays.toString(results));
+        System.out.println(Arrays.toString(finalResults));
     }
+
+    /* HAMMER EMOTE: \uD83D\uDD28
+    DOUBLE HAMMER: \u2692
+    LEFT SYMBOL: \uD83D\uDD37
+    RIGHT SYMBOL: \uD83D\uDFE7
+    * */
 }
